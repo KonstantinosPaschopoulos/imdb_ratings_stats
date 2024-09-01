@@ -1,0 +1,16 @@
+<div id="upload-form" class="p-5">
+    <form hx-post="/upload" hx-swap="outerHTML" hx-target="#upload-form" hx-indicator="#spinner" enctype="multipart/form-data">
+        <div class="input-group">
+            <input name="file" type="file" accept=".csv" class="form-control">
+            <button class="btn btn-outline-primary" type="submit">Upload</button>
+        </div>
+    </form>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="d-flex justify-content-center">
+        <img id="spinner" class="htmx-indicator" src="/static/indicator.svg" alt="Loading"/>
+    </div>
+</div>
